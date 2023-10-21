@@ -1774,7 +1774,7 @@ static int kvm_guest_time_update(struct kvm_vcpu *v)
 	static unsigned long cnt = 0;
 	cnt++;
 	if (cnt <= 5) { /* This is host. I don't expect anything */
-		KVMCLOCKPK("pophype: [kvm-clock]: false-sharing: vcpu->hv_clock %p #%lu\n",
+		//KVMCLOCKPK("pophype: [kvm-clock]: false-sharing: vcpu->hv_clock %p #%lu\n",
 														&vcpu->hv_clock, cnt);
 	}
 	/* I guess this will happen extremely frequently */
@@ -3954,7 +3954,7 @@ long kvm_arch_vm_ioctl(struct file *filp,
 	switch (ioctl) {
 	case KVM_SET_TSS_ADDR:
 #if defined(CONFIG_POPCORN_HYPE) && defined(CONFIG_POPCORN_STAT)
-		KVMCLOCKPK("\t%s(): KVM_SET_TSS_ADDR addr %lx\n",
+		//KVMCLOCKPK("\t%s(): KVM_SET_TSS_ADDR addr %lx\n",
 						__func__, (unsigned long)arg);
 #endif
 		r = kvm_vm_ioctl_set_tss_addr(kvm, arg);
@@ -3990,7 +3990,7 @@ long kvm_arch_vm_ioctl(struct file *filp,
 			goto create_irqchip_unlock;
 		r = -ENOMEM;
 #if defined(CONFIG_POPCORN_HYPE) && defined(CONFIG_POPCORN_STAT)
-		KVMCLOCKPK("%s(): KVM_CREATE_IRQCHIP 8259 virtual controller\n", __func__);
+		//KVMCLOCKPK("%s(): KVM_CREATE_IRQCHIP 8259 virtual controller\n", __func__);
 #endif
 		vpic = kvm_create_pic(kvm); /* create 8259 virtual controller */
 		if (vpic) {
@@ -4039,13 +4039,13 @@ long kvm_arch_vm_ioctl(struct file *filp,
 		r = -EEXIST;
 		if (kvm->arch.vpit) {
 #if defined(CONFIG_POPCORN_HYPE) && defined(CONFIG_POPCORN_STAT)
-			KVMCLOCKPK("\t%s(): !!kvm->arch.vpit (already created) skip r %d\n",
+			//KVMCLOCKPK("\t%s(): !!kvm->arch.vpit (already created) skip r %d\n",
 																__func__, r);
 #endif
 			goto create_pit_unlock;
 		}
 #if defined(CONFIG_POPCORN_HYPE) && defined(CONFIG_POPCORN_STAT)
-		KVMCLOCKPK("\t%s(): create PIT\n", __func__);
+		//KVMCLOCKPK("\t%s(): create PIT\n", __func__);
 #endif
 		r = -ENOMEM;
 		kvm->arch.vpit = kvm_create_pit(kvm, u.pit_config.flags);
@@ -4166,7 +4166,7 @@ long kvm_arch_vm_ioctl(struct file *filp,
 	case KVM_SET_BOOT_CPU_ID:
 		HPPRINTK("\t%s(): KVM_SET_BOOT_CPU_ID online_vcpus %d\n",
 				__func__, atomic_read(&kvm->online_vcpus));
-		KVMCLOCKPK("\t%s(): KVM_SET_BOOT_CPU_ID online_vcpus %d\n",
+		//KVMCLOCKPK("\t%s(): KVM_SET_BOOT_CPU_ID online_vcpus %d\n",
 				__func__, atomic_read(&kvm->online_vcpus));
 		r = 0;
 		mutex_lock(&kvm->lock);
@@ -4184,16 +4184,16 @@ long kvm_arch_vm_ioctl(struct file *filp,
 			//	KVMCLOCKPK(KERN_ERR "ERROR:  KVM_SET_BOOT_CPU_ID\n");
 			//	goto out;
 			//}
-			KVMCLOCKPK("\t==================================\n");
-			KVMCLOCKPK("\t====== KVM_SET_BOOT_CPU_ID ========\n");
-			KVMCLOCKPK("\t==================================\n");
+			//KVMCLOCKPK("\t==================================\n");
+		//	KVMCLOCKPK("\t====== KVM_SET_BOOT_CPU_ID ========\n");
+		//	KVMCLOCKPK("\t==================================\n");
 			//KVMCLOCKPK("\t%s(): BSP is ***** %u *****\n",
 						//__func__, kvm->arch.bsp_vcpu_id);
-			KVMCLOCKPK("\t%s(): BSP is ***** %d *****\n",
+		//	KVMCLOCKPK("\t%s(): BSP is ***** %d *****\n",
 						//__func__, vcpu_id);
 						__func__, kvm->arch.bsp_vcpu_id);
-			KVMCLOCKPK("\t==================================\n");
-			KVMCLOCKPK("\t==================================\n");
+		//	KVMCLOCKPK("\t==================================\n");
+		//	KVMCLOCKPK("\t==================================\n");
 			BUG_ON(current->at_remote &&
 				(kvm->arch.bsp_vcpu_id == 0 || kvm->arch.bsp_vcpu_id == 1) );
 #endif
@@ -4269,7 +4269,7 @@ long kvm_arch_vm_ioctl(struct file *filp,
 	}
 out:
 #if defined(CONFIG_POPCORN_HYPE) && defined(CONFIG_POPCORN_STAT)
-    KVMCLOCKPK("%s: 0x%x return %d\n", __func__, ioctl, r);
+    //KVMCLOCKPK("%s: 0x%x return %d\n", __func__, ioctl, r);
 #endif
 	return r;
 }
@@ -5137,7 +5137,7 @@ static void emulator_set_segment(struct x86_emulate_ctxt *ctxt, u16 selector,
 	{
 		static int cnt = 0;
 		cnt++;
-		KVMCLOCKPK("%s(): pophype doesn't expect this but vanilla qemu #%d\n",
+		//KVMCLOCKPK("%s(): pophype doesn't expect this but vanilla qemu #%d\n",
 																__func__, cnt);
 		if (cnt == 1 || !(cnt % 10))
 			WARN_ON(1);
@@ -6107,7 +6107,7 @@ int kvm_arch_init(void *opaque)
 	}
 
 #if defined(CONFIG_POPCORN_HYPE) && defined(CONFIG_POPCORN_STAT)
-	KVMCLOCKPK("pophype: false-sharing: shared_msrs %p (if target, TODO.)\n",
+	//KVMCLOCKPK("pophype: false-sharing: shared_msrs %p (if target, TODO.)\n",
 															shared_msrs);
 #endif
 
@@ -6673,7 +6673,7 @@ static void process_smi(struct kvm_vcpu *vcpu)
 		kvm_x86_ops->set_efer(vcpu, 0);
 
 #if defined(CONFIG_POPCORN_HYPE)
-	KVMCLOCKPK("<%d> %s():\n", vcpu->vcpu_id, __func__);
+	//KVMCLOCKPK("<%d> %s():\n", vcpu->vcpu_id, __func__);
 #endif
 
 	kvm_update_cpuid(vcpu);
@@ -7424,12 +7424,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu, struct kvm_run *kvm_run)
 #endif
 	if (unlikely(vcpu->arch.mp_state == KVM_MP_STATE_UNINITIALIZED)) {
 #if defined(CONFIG_POPCORN_HYPE) && defined(CONFIG_POPCORN_STAT)
-		KVMCLOCKPK("(run)\t\t#kvm_once [%d]<%d>: I'm an AP - IN blocking\n",
+		//KVMCLOCKPK("(run)\t\t#kvm_once [%d]<%d>: I'm an AP - IN blocking\n",
 											current->pid, vcpu->vcpu_id);
 #endif
 		kvm_vcpu_block(vcpu);
 #if defined(CONFIG_POPCORN_HYPE) && defined(CONFIG_POPCORN_STAT)
-		KVMCLOCKPK("(run)\t\t#kvm_once [%d]<%d>: I'm an AP - OUT got kicked out\n",
+		//KVMCLOCKPK("(run)\t\t#kvm_once [%d]<%d>: I'm an AP - OUT got kicked out\n",
 												current->pid, vcpu->vcpu_id);
 #endif
 		kvm_apic_accept_events(vcpu); // got injected int here
@@ -8993,7 +8993,7 @@ int __x86_set_memory_region(struct kvm *kvm, int id, gpa_t gpa, u32 size)
 		/* serialize in userspace */
 		hva = vm_mmap(NULL, 0, size, PROT_READ | PROT_WRITE,
 							  MAP_SHARED | MAP_ANONYMOUS, 0);
-		KVMCLOCKPK("%s(): -> vm_mmap(NULL) id %d gpa 0x%llx size %u => hva %lx\n",
+		//KVMCLOCKPK("%s(): -> vm_mmap(NULL) id %d gpa 0x%llx size %u => hva %lx\n",
 											__func__, id, gpa, size, hva);
 #else
 		//hva = vma_server_mmap_remote(NULL, 0, size, PROT_READ | PROT_WRITE,

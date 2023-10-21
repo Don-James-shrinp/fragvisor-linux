@@ -120,7 +120,7 @@ static inline void kvm_sched_clock_init(bool stable)
 	pv_time_ops.sched_clock = kvm_sched_clock_read;
 	set_sched_clock_stable();
 
-	KVMCLOCKPK(KERN_INFO "kvm-clock: using sched offset of %llu cycles\n",
+	//KVMCLOCKPK(KERN_INFO "kvm-clock: using sched offset of %llu cycles\n",
 			kvm_sched_clock_offset);
 
 	BUILD_BUG_ON(sizeof(kvm_sched_clock_offset) >

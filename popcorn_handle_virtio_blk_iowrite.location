@@ -1,0 +1,4 @@
+/home/qqy/fragvisor-linux/drivers/block/virtio_blk.c:inline void popcorn_handle_virtio_blk_iowrite(void)
+/home/qqy/fragvisor-linux/include/popcorn/hype_kvm.h:void popcorn_handle_virtio_blk_iowrite(void);
+/home/qqy/fragvisor-linux/arch/x86/kernel/smp.c:	popcorn_handle_virtio_blk_iowrite();
+/home/qqy/fragvisor-linux/arch/x86/kernel/smp.c:	popcorn_handle_virtio_blk_iowrite();

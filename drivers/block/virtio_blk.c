@@ -17,7 +17,6 @@
 
 #define PART_BITS 4
 #define VQ_NAME_LEN 16
-
 #ifdef CONFIG_POPCORN_HYPE
 #include <popcorn/types.h>
 #include <popcorn/hype_kvm.h>

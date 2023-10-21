@@ -1,0 +1,54 @@
+/home/qqy/fragvisor-linux/include/popcorn/debug.h:#define KVMCLOCKPK(...)
+/home/qqy/fragvisor-linux/kernel/time/hrtimer.c:    KVMCLOCKPK("pophype: false-sharing: was DEFINE_PER_CPU "
+/home/qqy/fragvisor-linux/kernel/time/clocksource.c:	KVMCLOCKPK("<%d> %s %s(): pophype: clocksource: "
+/home/qqy/fragvisor-linux/kernel/time/clocksource.c:		KVMCLOCKPK("<%d> %s %s(): pophype: clocksource: "
+/home/qqy/fragvisor-linux/kernel/time/clocksource.c:			KVMCLOCKPK("<%d> %s %s(): pophype: clocksource: "
+/home/qqy/fragvisor-linux/kernel/time/clocksource.c:			KVMCLOCKPK("<%d> %s %s(): pophype: clocksource: "
+/home/qqy/fragvisor-linux/kernel/time/tick-common.c:	KVMCLOCKPK("pophype: false-sharing: was DEFINE_PER_CPU "
+/home/qqy/fragvisor-linux/kernel/time/tick-common.c:	KVMCLOCKPK("pophype: false-sharing: was DEFINE_PER_CPU "
+/home/qqy/fragvisor-linux/kernel/time/tick-common.c:	KVMCLOCKPK("pophype: false-sharing: was DEFINE_PER_CPU "
+/home/qqy/fragvisor-linux/kernel/time/tick-common.c:	KVMCLOCKPK("pophype: false-sharing: GLOBAL &tick_next_period %p\n",
+/home/qqy/fragvisor-linux/kernel/time/tick-common.c:	KVMCLOCKPK("pophype: false-sharing: GLOBAL &tick_period %p\n",
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	//KVMCLOCKPK(KERN_INFO "kvm-clock: using sched offset of %llu cycles\n",
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK("pophype: kvm-clock: %s(): cpu=%d "
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK(KERN_INFO "kvm-clock: cpu %d, msr %x:%x, %s\n",
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:		KVMCLOCKPK("\n\n\tpophype: kvm-clock: %s(): cpu=%d src kva %p (test %p) "
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK(KERN_INFO "kvm-clock: Using msrs %x and %x",
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK("\n\t\tpophype: [kvm-clock]: fff3 [[[kva 0x%p]]] (hv_clock) "
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK("\n\t\tpophype: [kvm-clock]: &wall_clock kva 0x%p pa 0x%lx "
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK("\n");
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK("pophype: [kvm-clock]: false-sharing: kva &hv_clock[0] %p\n",
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK("pophype: [kvm-clock]: false-sharing: kva &hv_clock[1] %p\n",
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK("pophype: [kvm-clock]: false-sharing: kva &hv_clock[2] %p\n",
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK("\n");
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK("pophype: [kvm-clock]: false-sharing: "
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:	KVMCLOCKPK("pophype: [kvm-clock]: false-sharing: kva &hv_clock %p\n",
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:    KVMCLOCKPK("pophype: [kvm-clock]: %s(): hv_clock %p (guest)\n",
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvmclock.c:    KVMCLOCKPK("pophype: [kvm-clock]: %s(): (not used)\n",
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvm.c:    KVMCLOCKPK("pophype: [kvm-clock]: %s(): see if "
+/home/qqy/fragvisor-linux/arch/x86/kernel/kvm.c:	KVMCLOCKPK("pophype: [kvm-clock]: %s(): see if "
+/home/qqy/fragvisor-linux/arch/x86/kernel/pvclock.c:	KVMCLOCKPK("pophype: [kvm-clock]: %s(): cpu=%d &last_value %p (guest)\n",
+/home/qqy/fragvisor-linux/arch/x86/kernel/pvclock.c:	KVMCLOCKPK("pophype: [kvm-clock]: %s(): cpu=%d &last_value %p (guest)\n",
+/home/qqy/fragvisor-linux/arch/x86/kernel/pvclock.c:    KVMCLOCKPK("pophype: [kvm-clock]: %s(): &last_value %p (not used)\n",
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:		KVMCLOCKPK("pophype: [kvm-clock]: false-sharing: vcpu->hv_clock %p #%lu\n",
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:		KVMCLOCKPK("\t%s(): KVM_SET_TSS_ADDR addr %lx\n",
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:		KVMCLOCKPK("%s(): KVM_CREATE_IRQCHIP 8259 virtual controller\n", __func__);
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:			KVMCLOCKPK("\t%s(): !!kvm->arch.vpit (already created) skip r %d\n",
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:		KVMCLOCKPK("\t%s(): create PIT\n", __func__);
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:		KVMCLOCKPK("\t%s(): KVM_SET_BOOT_CPU_ID online_vcpus %d\n",
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:			//	KVMCLOCKPK(KERN_ERR "ERROR:  KVM_SET_BOOT_CPU_ID\n");
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:			KVMCLOCKPK("\t==================================\n");
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:			KVMCLOCKPK("\t====== KVM_SET_BOOT_CPU_ID ========\n");
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:			KVMCLOCKPK("\t==================================\n");
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:			//KVMCLOCKPK("\t%s(): BSP is ***** %u *****\n",
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:			KVMCLOCKPK("\t%s(): BSP is ***** %d *****\n",
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:			KVMCLOCKPK("\t==================================\n");
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:			KVMCLOCKPK("\t==================================\n");
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:    KVMCLOCKPK("%s: 0x%x return %d\n", __func__, ioctl, r);
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:	//KVMCLOCKPK("%s(): seg %d pophype doesn't expect this\n", __func__, seg);
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:		KVMCLOCKPK("%s(): pophype doesn't expect this but vanilla qemu #%d\n",
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:	KVMCLOCKPK("pophype: false-sharing: shared_msrs %p (if target, TODO.)\n",
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:	KVMCLOCKPK("<%d> %s():\n", vcpu->vcpu_id, __func__);
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:		KVMCLOCKPK("(run)\t\t#kvm_once [%d]<%d>: I'm an AP - IN blocking\n",
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:		KVMCLOCKPK("(run)\t\t#kvm_once [%d]<%d>: I'm an AP - OUT got kicked out\n",
+/home/qqy/fragvisor-linux/arch/x86/kvm/x86.c:		KVMCLOCKPK("%s(): -> vm_mmap(NULL) id %d gpa 0x%llx size %u => hva %lx\n",
