@@ -1632,7 +1632,7 @@ static int pf_interception(struct vcpu_svm *svm)
 			kvm_mmu_unprotect_page_virt(&svm->vcpu, fault_address);
 		r = kvm_mmu_page_fault(&svm->vcpu, fault_address, error_code,
 			svm->vmcb->control.insn_bytes,
-			svm->vmcb->control.insn_len);
+			svm->vmcb->control.insn_len, 0, 0);
 		break;
 	case KVM_PV_REASON_PAGE_NOT_PRESENT:
 		svm->apf_reason = 0;
